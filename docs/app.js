@@ -831,6 +831,7 @@
     return slides;
   }
 
+  const IS_IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const MUSIC_BED = 0.8;   // music level on photos
   const MUSIC_DUCK = 0.22;  // music level under clip audio
   function getMusic() {
@@ -838,8 +839,9 @@
       const a = document.createElement('audio');
       a.loop = true; a.preload = 'auto'; a.crossOrigin = 'anonymous';
       reel.music = a;
-      // iPadOS ignores audio.volume, so route through a Web Audio gain node for ducking
-      const Ctx = window.AudioContext || window.webkitAudioContext;
+      // Desktop: route through a Web Audio gain node for ducking.
+      // iOS: Web Audio is silenced by the ring/silent switch, so play the element directly (pre-attenuated mix, no ducking).
+      const Ctx = (!IS_IOS) && (window.AudioContext || window.webkitAudioContext);
       if (Ctx) {
         try {
           reel.actx = new Ctx();
@@ -862,6 +864,7 @@
       g.linearRampToValueAtTime(to, t + ms / 1000);
       return;
     }
+    if (IS_IOS) { if (to === 0) reel.music.pause(); return; }
     const a = reel.music;
     cancelAnimationFrame(reel.musicRaf);
     const from = a.volume, t0 = performance.now();
@@ -914,7 +917,7 @@
     }
     if (story.music) {
       const a = getMusic();
-      a.src = story.music; if (!reel.gain) a.volume = 0; a.currentTime = 0;
+      a.src = IS_IOS ? story.music.replace(/\.m4a$/, '-quiet.m4a') : story.music; if (!reel.gain) a.volume = IS_IOS ? 1 : 0; a.currentTime = 0;
       a.play().catch(() => {});
       fadeMusic(MUSIC_BED, 800);
     }

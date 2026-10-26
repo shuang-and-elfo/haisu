@@ -1,5 +1,5 @@
 /* Service worker: full offline cache for Haisu's World (iPad interview use) */
-const VERSION = 'haisu-v2';
+const VERSION = 'haisu-v3';
 const BASE = new URL(self.registration ? self.registration.scope : self.location.href).pathname.replace(/[^/]*$/, '');
 const CORE = ['', 'index.html', 'app.js', 'styles.css', 'data/site-content.json', 'manifest.webmanifest', 'icon.png'].map((x) => BASE + x);
 
