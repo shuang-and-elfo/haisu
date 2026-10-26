@@ -1,5 +1,5 @@
 /* Service worker: full offline cache for Haisu's World (iPad interview use) */
-const VERSION = 'haisu-v3';
+const VERSION = 'haisu-v4';
 const BASE = new URL(self.registration ? self.registration.scope : self.location.href).pathname.replace(/[^/]*$/, '');
 const CORE = ['', 'index.html', 'app.js', 'styles.css', 'data/site-content.json', 'manifest.webmanifest', 'icon.png'].map((x) => BASE + x);
 
@@ -27,7 +27,7 @@ self.addEventListener('message', (e) => {
       while (all.length) {
         const url = all.shift();
         try {
-          const hit = await cache.match(url, { ignoreSearch: true });
+          const hit = CORE.includes(url) ? null : await cache.match(url, { ignoreSearch: true });
           if (!hit) {
             const res = await fetch(url, { cache: 'no-store' });
             if (!res.ok) throw new Error(res.status);
@@ -68,6 +68,18 @@ self.addEventListener('fetch', (e) => {
         return fresh;
       } catch (err) {
         return cached || new Response('{}', { status: 503 });
+      }
+    }
+
+    // Pages, code and data: network first (so updates show up), cache fallback when offline
+    const isShell = CORE.includes(url.pathname) || /\.(html|js|css|json|webmanifest)$/.test(url.pathname) || url.pathname.endsWith('/');
+    if (isShell) {
+      try {
+        const res = await fetch(req);
+        if (res.ok) cache.put(key, res.clone());
+        return res;
+      } catch (err) {
+        return cached || new Response('Offline and not cached', { status: 504 });
       }
     }
 
