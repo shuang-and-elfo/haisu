@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Little Peek into Haisu’s World</title>
+  <meta name="description" content="Three everyday stories from home — getting to know Haisu through Journey to the West roleplay, a neighborhood orange juice stand, and growing into a big brother." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..500&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#1b1714" />
+  <link rel="stylesheet" href="styles.css?v=23" />
+</head>
+<body>
+  <!-- Sticky Top Mode & Interview Controls -->
+  <header class="top-bar" id="top-bar">
+    <div class="top-bar-inner">
+      <a href="#top" class="brand-mini" id="brand-home-link">
+        <span class="brand-rule" aria-hidden="true"></span>
+        <span class="brand-mini-text">A Little Peek into Haisu’s World</span>
+      </a>
+
+      <div class="top-controls" role="toolbar" aria-label="View and language controls">
+        <!-- Mode Toggle: Teacher Interview View vs. Parent Upload & Prep Mode -->
+        <div class="segmented-group" role="group" aria-label="Page Mode">
+          <button type="button" class="seg-btn active" id="mode-interview-btn" data-mode="interview">
+            Interview View
+          </button>
+          <button type="button" class="seg-btn prep-btn" id="mode-prep-btn" data-mode="prep">
+            + Upload &amp; Prep
+          </button>
+        </div>
+
+        <!-- Toggle to hide unuploaded empty media slots in Interview View -->
+        <button type="button" class="toggle-pill" id="toggle-empty-slots-btn" title="Show or hide media frames that do not have photos/videos uploaded yet">
+          Show Pending Frames: ON
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="album-shell" id="top">
+    <!-- Parent Prep & Media Upload Studio Banner (Visible in Prep Mode) -->
+    <section class="prep-guide-banner" id="prep-guide-banner" hidden>
+      <div class="prep-guide-header">
+        <div>
+          <h2 class="prep-guide-title">Media Upload Studio</h2>
+          <p class="prep-guide-sub">Drag photos (JPG/PNG/HEIC) or short videos (MP4/MOV, ideally 10–20s) onto any story frame below. Files are saved locally to <code>public/media/</code> and <code>content-notes.md</code> is updated automatically.</p>
+        </div>
+        <div class="priority-progress-wrap">
+          <span class="priority-count" id="priority-progress-text">0 / 8 Priority Media Ready</span>
+        </div>
+      </div>
+      <div class="priority-checklist-grid" id="priority-checklist-grid"></div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero-section"></section>
+
+    <!-- Three Stories Stack -->
+    <div class="stories-stack" id="stories-stack"></div>
+
+    <!-- Footer -->
+    <footer class="album-footer" id="album-footer">
+      <div>
+        <strong>A Little Peek into Haisu’s World</strong> · Private family album for parent interview conversation
+      </div>
+      <div id="footer-mode-hint">
+        Local private workspace · Media stored locally in <code>/usr/local/google/home/lishuang/haisu/public/media/</code>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Hidden File Input for Click-to-Upload -->
+  <input type="file" id="global-file-input" accept="image/*,video/*,.heic,.heif,.mov,.mp4,.m4v,.webm" hidden />
+
+  <!-- Photo Zoom Lightbox -->
+  <div class="lightbox-backdrop" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo view" hidden>
+    <button type="button" class="lightbox-close" id="lightbox-close-btn">Close (Esc)</button>
+    <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <!-- Full-screen launch screen (default landing for iPad interview use) -->
+  <div class="launch" id="launch" hidden>
+    <div class="launch-inner">
+      <div class="launch-head">
+        <span class="launch-kicker">A LITTLE PEEK INTO</span>
+        <h1 class="launch-title">Haisu’s World</h1>
+      </div>
+      <div class="launch-tiles" id="launch-tiles"></div>
+      <div class="offline-row">
+        <button type="button" class="offline-btn" id="offline-btn" aria-label="Save for offline" title="Save for offline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        </button>
+        <span class="offline-status" id="offline-status"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-screen Story Reel Player (iPad interview mode) -->
+  <div class="reel" id="reel" hidden>
+    <div class="reel-progress" id="reel-progress"></div>
+    <button type="button" class="reel-close" id="reel-close" aria-label="Close">✕</button>
+    <div class="reel-stage" id="reel-stage"></div>
+    <div class="reel-caption" id="reel-caption"></div>
+    <div class="reel-tap reel-tap-prev" id="reel-prev" aria-label="Previous"></div>
+    <div class="reel-tap reel-tap-next" id="reel-next" aria-label="Next"></div>
+  </div>
+
+  <!-- Status Toast -->
+  <div class="status-toast" id="status-toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js?v=23"></script>
+</body>
+</html>

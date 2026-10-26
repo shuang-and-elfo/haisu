@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+docs/media/*/originals/
+docs/media/music/candidates/*
+!docs/media/music/candidates/porch-swing-days-slower.m4a
+!docs/media/music/candidates/monkeys-spinning-monkeys.m4a
+!docs/media/music/candidates/fluffing-a-duck.m4a
+docs/media/monkey-king/
+docs/media/cover/

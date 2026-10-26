@@ -1,0 +1,10 @@
+{
+  "name": "Haisu’s World",
+  "short_name": "Haisu",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#1b1714",
+  "theme_color": "#1b1714",
+  "icons": [{ "src": "icon.png", "sizes": "512x512", "type": "image/png" }]
+}

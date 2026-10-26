@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music picker · Haisu’s World</title>
+  <link rel="stylesheet" href="/styles.css?v=13" />
+  <style>
+    body { background: var(--bg-paper); }
+    .mp { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+    .mp h1 { font-family: var(--font-serif); font-size: 2rem; margin: 0 0 0.25rem; }
+    .mp p.lead { color: var(--ink-secondary); margin: 0 0 1.5rem; }
+    .mp-current { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
+    .mp-current div { background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 0.8rem 1rem; }
+    .mp-current b { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--accent-terracotta); margin-bottom: 0.25rem; }
+    .mp-group { margin-bottom: 1.75rem; }
+    .mp-group h2 { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 0.6rem; }
+    .track { display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: center; background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 0.7rem 0.9rem; margin-bottom: 0.5rem; }
+    .track .name { font-weight: 600; }
+    .track .note { font-size: 0.82rem; color: var(--ink-muted); }
+    .track audio { width: 100%; margin-top: 0.4rem; height: 32px; }
+    .assign { display: flex; gap: 0.4rem; }
+    .assign button { font-size: 0.74rem; padding: 0.35rem 0.6rem; }
+    .track.in-use { outline: 2px solid var(--accent-terracotta-soft); }
+    @media (max-width: 700px) { .track { grid-template-columns: 1fr; } .mp-current { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="mp">
+    <h1>Music picker</h1>
+    <p class="lead">Press play to audition. Hit a story button to use that track; the reel picks it up on the next play. All tracks: Kevin MacLeod (incompetech.com), CC BY 4.0.</p>
+    <div class="mp-current" id="current"></div>
+    <div id="groups"></div>
+  </main>
+  <script>
+    const GROUPS = [
+      { title: 'Tender · for Big Brother', tracks: [
+        ['Wholesome', 'current · soft guitar, warm'],
+        ['Brittle Rille', 'gentle piano, bittersweet'],
+        ['Almost in F - Tranquillity', 'slow piano, very calm'],
+        ['Touching Moments One - Pulse', 'piano + strings, emotional'],
+        ['Porch Swing Days - slower', 'lazy acoustic, homey'],
+        ['Teddy Bear Waltz', 'music-box waltz, childlike'],
+        ['Dreamy Flashback', 'hazy, nostalgic'],
+        ['Thinking Music', 'light piano, reflective'],
+      ]},
+      { title: 'Playful · for Orange Juice', tracks: [
+        ['Carefree', 'current · ukulele, sunny'],
+        ['Wallpaper', 'bouncy, cheeky'],
+        ['Fluffing a Duck', 'silly, toddler energy'],
+        ['Happy Bee', 'bright, quick'],
+        ['Monkeys Spinning Monkeys', 'classic goofy'],
+        ['Sneaky Snitch', 'mischievous'],
+        ['Fretless', 'laid-back, warm'],
+        ['Pixelland', 'chiptune fun'],
+        ['Bossa Antigua', 'light bossa, summery'],
+        ['Lobby Time', 'jazzy, relaxed'],
+      ]},
+      { title: 'Building / upbeat · for Soccer', tracks: [
+        ['Life of Riley', 'current · upbeat acoustic'],
+        ['Call to Adventure', 'orchestral, rising'],
+        ['Cheery Monday', 'energetic, happy'],
+        ['Thatched Villagers', 'folky, moving forward'],
+        ['Pamgaea', 'bright, determined'],
+        ['Happy Boy End Theme', 'triumphant, playful'],
+        ['Odyssey', 'cinematic build'],
+        ['Easy Lemon', 'light, optimistic'],
+        ['Deliberate Thought', 'steady, hopeful'],
+        ['Airport Lounge', 'cool, easy'],
+      ]},
+    ];
+    const STORIES = [['orange-juice', '01 Orange Juice'], ['big-brother', '02 Big Brother'], ['soccer', '03 Soccer']];
+    let current = {};
+    const slug = (n) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    async function load() {
+      const r = await fetch('/api/content'); const { content } = await r.json();
+      current = Object.fromEntries(content.stories.map((s) => [s.id, s.music || '']));
+      render();
+    }
+    function render() {
+      document.getElementById('current').innerHTML = STORIES.map(([id, label]) => `<div><b>${label}</b>${(current[id] || '').split('/').pop().replace('.m4a', '') || '—'}</div>`).join('');
+      document.getElementById('groups').innerHTML = GROUPS.map((g) => `
+        <section class="mp-group"><h2>${g.title}</h2>
+        ${g.tracks.map(([name, note]) => {
+          const file = `/media/music/candidates/${slug(name)}.m4a`;
+          const inUse = Object.values(current).some((m) => m.endsWith(`${slug(name)}.m4a`));
+          return `<div class="track ${inUse ? 'in-use' : ''}">
+            <div><div class="name">${name}</div><div class="note">${note}</div><audio controls preload="none" src="${file}"></audio></div>
+            <div class="assign">${STORIES.map(([id, label]) => `<button class="btn-small ${current[id] && current[id].endsWith(slug(name) + '.m4a') ? 'primary' : ''}" data-s="${id}" data-t="${slug(name)}">${label.split(' ')[0]}</button>`).join('')}</div>
+          </div>`;
+        }).join('')}</section>`).join('');
+      document.querySelectorAll('.assign button').forEach((b) => b.addEventListener('click', async () => {
+        await fetch('/api/music', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ storyId: b.dataset.s, track: b.dataset.t }) });
+        load();
+      }));
+      // pause others when one plays
+      document.querySelectorAll('audio').forEach((a) => a.addEventListener('play', () => document.querySelectorAll('audio').forEach((o) => { if (o !== a) o.pause(); })));
+    }
+    load();
+  </script>
+</body>
+</html>

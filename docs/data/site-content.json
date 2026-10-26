@@ -1,0 +1,868 @@
+{
+  "meta": {
+    "eyebrow": "A LITTLE PEEK INTO HAISU’S WORLD",
+    "titleEn": "A Little Peek into Haisu’s World",
+    "titleZh": "Haisu 的小世界",
+    "subtitleEn": "Three everyday stories from home: figuring out how an orange juice stand works, slowly learning his way into being a big brother, and finding his feet on the soccer field.",
+    "subtitleZh": "三个真实故事，认识一个鲜活的小男孩。",
+    "interviewTipEn": "Optional interview companion · Pick any story below or scroll at your own pace.",
+    "interviewTipZh": "面试可选小补充 · 以交谈为主，需要时可点开任意一个故事。",
+    "introVideoUrl": "",
+    "introVideoPoster": ""
+  },
+  "coverSlot": {
+    "id": "cover-photo",
+    "folder": "cover",
+    "type": "image",
+    "priority": "priority-1",
+    "required": true,
+    "labelEn": "Everyday Portrait of Haisu",
+    "labelZh": "首页：一张自然、有表情、很像平时 Haisu 的照片",
+    "promptHintEn": "A candid, expressive everyday photo that looks just like Haisu as he usually is.",
+    "promptHintZh": "选一张自然发生、有表情、最像平时 Haisu 的日常照片（不必摆拍）。",
+    "src": "",
+    "poster": "",
+    "subtitlesVtt": "",
+    "notes": {
+      "filename": "",
+      "context": "",
+      "whatHappened": "",
+      "quoteAndTimestamp": "",
+      "usageNotes": "Cover portrait"
+    }
+  },
+  "stories": [
+    {
+      "id": "orange-juice",
+      "number": "01",
+      "theme": "citrus",
+      "titleEn": "From Toys to Orange Juice",
+      "titleZh": "从玩具摊到橙汁摊",
+      "summaryEn": "From selling his own toys at home and paying Mom with Post-it ‘money,’ to running a real orange juice stand and treating his friends to popsicles.",
+      "summaryZh": "从卖玩具还倒给妈妈钱，到参加真实的橙汁摊，再用赚来的钱请朋友吃冰棍。",
+      "bodyEn": [
+        "At Haisu’s living-room toy stand, Mom didn’t just buy a toy — she also received handmade Post-it ‘money’ paid to her by the shopkeeper himself. Later, we set up a real orange juice stand together outside our home and at the park.",
+        "When he spotted his own name on the stand’s poster, he was thrilled. The first time out, he felt shy about speaking to customers; by the second time, he began stepping in to hand out cups and straws on his own. At the end, the earnings turned into popsicles shared with his friends."
+      ],
+      "bodyZh": [
+        "在 Haisu 的玩具摊，妈妈不仅能买到玩具，还能收到他倒付的便利贴“钱”。后来，我们一起开了真的橙汁摊。",
+        "他看到海报上自己的名字，特别开心。第一次他不好意思和客人说话；第二次，他开始主动递杯子和吸管。最后，赚来的钱变成了和小伙伴一起吃的冰棍。"
+      ],
+      "journeySteps": [
+        {
+          "step": "01",
+          "titleEn": "The Post-it Toy Stand",
+          "titleZh": "",
+          "detailEn": "Sold his toys to Mom — and handed her Post-it ‘money’ too.",
+          "detailZh": ""
+        },
+        {
+          "step": "02",
+          "titleEn": "Getting Ready",
+          "titleZh": "",
+          "detailEn": "Washed the oranges and beamed when he saw his own name on the sign.",
+          "detailZh": ""
+        },
+        {
+          "step": "03",
+          "titleEn": "Stand #1: Quiet & Shy",
+          "titleZh": "",
+          "detailEn": "Stayed close to Mom and watched quietly when neighbors stopped by.",
+          "detailZh": ""
+        },
+        {
+          "step": "04",
+          "titleEn": "Stand #2: Cups, Ice & Money",
+          "titleZh": "",
+          "detailEn": "Found his footing — fetching ice, handing out cups and straws, taking payment.",
+          "detailZh": ""
+        },
+        {
+          "step": "05",
+          "titleEn": "Popsicles with Friends",
+          "titleZh": "",
+          "detailEn": "Turned the juice stand earnings into popsicles for his friends.",
+          "detailZh": ""
+        }
+      ],
+      "pendingChecks": [
+        {
+          "id": "oj-poster-reaction",
+          "labelZh": "待补充（可选）：如果记得，记录他看到海报名字时说了什么，以及两次摆摊的大致时间。",
+          "labelEn": "Optional note: What he said when spotting his name on the poster, and approximate dates of the two stands.",
+          "value": ""
+        }
+      ],
+      "mediaSlots": [
+        {
+          "id": "oj-wash-oranges",
+          "folder": "orange-juice",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Washing the Oranges",
+          "labelZh": "",
+          "promptHintEn": "Prep at home",
+          "promptHintZh": "",
+          "src": "/media/orange-juice/wash-oranges.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "notes": {
+            "filename": "wash-oranges.jpg",
+            "context": "At home",
+            "whatHappened": "Washing oranges to get ready for the stand",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          },
+          "reelCaption": "Step one: wash the oranges. Very seriously."
+        },
+        {
+          "id": "oj-holding-sign",
+          "folder": "orange-juice",
+          "type": "live",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "His Name on the Sign",
+          "labelZh": "",
+          "promptHintEn": "Poster moment",
+          "promptHintZh": "",
+          "src": "/media/orange-juice/holding-sign.mp4",
+          "poster": "/media/orange-juice/holding-sign-poster.jpg",
+          "subtitlesVtt": "",
+          "notes": {
+            "filename": "holding-sign.mp4",
+            "context": "At home",
+            "whatHappened": "Holding up the “Haisu’s Fresh Orange Juice” sign",
+            "quoteAndTimestamp": "",
+            "usageNotes": "Strong candidate for the story’s lead frame"
+          },
+          "reelCaption": "His name. On a sign. Big moment."
+        },
+        {
+          "id": "oj-selling-first-time",
+          "folder": "orange-juice",
+          "type": "live",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Stand #1",
+          "labelZh": "",
+          "promptHintEn": "First stand",
+          "promptHintZh": "",
+          "src": "/media/orange-juice/selling-first-time.mp4",
+          "poster": "/media/orange-juice/selling-first-time-poster.jpg",
+          "subtitlesVtt": "",
+          "notes": {
+            "filename": "selling-first-time.mp4",
+            "context": "Outside our home",
+            "whatHappened": "Standing close to Mom beside the sign at the first stand",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          },
+          "reelCaption": "Stand #1: staying very, very close to Mom."
+        },
+        {
+          "id": "oj-selling-second-time",
+          "folder": "orange-juice",
+          "type": "live",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Stand #2",
+          "labelZh": "",
+          "promptHintEn": "Second stand",
+          "promptHintZh": "",
+          "src": "/media/orange-juice/selling-second-time.mp4",
+          "poster": "/media/orange-juice/selling-second-time-poster.jpg",
+          "subtitlesVtt": "",
+          "notes": {
+            "filename": "selling-second-time.mp4",
+            "context": "At the park",
+            "whatHappened": "Reaching into the cooler for ice at the second stand",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          },
+          "reelCaption": "Stand #2: ice duty, handled."
+        },
+        {
+          "id": "oj-collecting-money",
+          "folder": "orange-juice",
+          "type": "live",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Collecting the Money",
+          "labelZh": "",
+          "promptHintEn": "Payment moment",
+          "promptHintZh": "",
+          "src": "/media/orange-juice/collecting-money.mp4",
+          "poster": "/media/orange-juice/collecting-money-poster.jpg",
+          "subtitlesVtt": "",
+          "notes": {
+            "filename": "collecting-money.mp4",
+            "context": "At the park",
+            "whatHappened": "Taking payment from a customer holding a cup of juice",
+            "quoteAndTimestamp": "",
+            "usageNotes": "Customer is another child — original clip, use as-is"
+          },
+          "reelCaption": "Real money this time. Not Post-its.",
+          "silent": true
+        },
+        {
+          "id": "oj-share-icecream",
+          "folder": "orange-juice",
+          "type": "live",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Popsicles with Friends",
+          "labelZh": "",
+          "promptHintEn": "Story ending",
+          "promptHintZh": "",
+          "src": "/media/orange-juice/share-icecream.mp4",
+          "poster": "/media/orange-juice/share-icecream-poster.jpg",
+          "subtitlesVtt": "",
+          "notes": {
+            "filename": "share-icecream.mp4",
+            "context": "At the park",
+            "whatHappened": "Sharing popsicles with friends, bought with the stand’s earnings",
+            "quoteAndTimestamp": "",
+            "usageNotes": "Other children visible — fine for a private interview page"
+          },
+          "reelCaption": "Profits turned into popsicles for the whole crew."
+        }
+      ],
+      "music": "/media/music/candidates/fluffing-a-duck.m4a"
+    },
+    {
+      "id": "big-brother",
+      "number": "02",
+      "theme": "sage",
+      "titleEn": "Growing into a Big Brother",
+      "titleZh": "慢慢学着当哥哥",
+      "summaryEn": "It took him a while to adjust to sharing Mom and Dad. Now he kisses her good morning, holds her steady, and shows her how things are done. And she copies everything.",
+      "summaryZh": "从适应分享爸爸妈妈的关注，到学会温柔、交换玩具，并发现自己是妹妹模仿的对象。",
+      "bodyEn": [
+        "Adjusting to the fact that Mom and Dad’s attention no longer belonged only to him took Haisu some time. Slowly he learned to be gentle with his sister. Now, when she reaches for a toy he is playing with, he goes to find another one and says: “Meimei, trade with me!”",
+        "He has also noticed that his sister watches and copies the things he does. So when she is watching, he eats his meals and brushes his teeth with extra care, learning how to be a big brother a little more each day."
+      ],
+      "bodyZh": [
+        "适应爸爸妈妈的关注不再只属于自己，花了 Haisu 一些时间。现在，妹妹想拿他的玩具时，他会找来另一个，说：“妹妹，trade with me!”",
+        "他也发现，妹妹会学着做他做的事情。于是，在妹妹面前，他开始更认真地吃饭和刷牙，也在一点点学着当哥哥。"
+      ],
+      "quote": {
+        "zh": "“妹妹，trade with me!”",
+        "en": "“Meimei (Little sister), trade with me!”",
+        "attributionEn": "Holding out a second toy when his sister reaches for the one in his hand",
+        "attributionZh": "当妹妹抢他的玩具时，他找来另一个玩具和妹妹商量交换"
+      },
+      "pendingChecks": [],
+      "mediaSlots": [
+        {
+          "id": "bb-first-meeting",
+          "folder": "big-brother",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Meeting His Sister",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/first-meeting.mp4",
+          "poster": "/media/big-brother/first-meeting-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "June 2025. Meeting his little sister.",
+          "notes": {
+            "filename": "first-meeting.mp4",
+            "context": "June 2025, hospital",
+            "whatHappened": "Meeting his newborn sister for the first time",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          },
+          "subs": [
+            {
+              "start": 0.5,
+              "end": 7.5,
+              "text": "“Does she want milk now?”"
+            },
+            {
+              "start": 8.0,
+              "end": 9.8,
+              "text": "“Why is she sleeping?”"
+            }
+          ]
+        },
+        {
+          "id": "bb-together-oct25",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Early Days",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/together-oct25.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "The early days. Mom and Dad’s attention, suddenly shared.",
+          "notes": {
+            "filename": "together-oct25.jpg",
+            "context": "October 2025",
+            "whatHappened": "Sitting with Dad and his sister in the stroller",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-costco-cart",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Early Days",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/costco-cart.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "Everywhere together now. Even Costco.",
+          "notes": {
+            "filename": "costco-cart.jpg",
+            "context": "Late 2025",
+            "whatHappened": "Riding in the shopping cart beside his sister",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-halloween-2025",
+          "folder": "big-brother",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Halloween 2025",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/halloween-2025.mp4",
+          "poster": "/media/big-brother/halloween-2025-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Halloween 2025. His first with a sidekick.",
+          "notes": {
+            "filename": "halloween-2025.mp4",
+            "context": "October 2025",
+            "whatHappened": "Riding his dinosaur with his sister along",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-pillow-ride",
+          "folder": "big-brother",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Pillow Ride",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/pillow-ride.mp4",
+          "poster": "/media/big-brother/pillow-ride-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Holding her steady on the pillow ride.",
+          "notes": {
+            "filename": "pillow-ride.mp4",
+            "context": "January 2026",
+            "whatHappened": "Holding his sister steady on a pillow ride",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          },
+          "subs": [
+            {
+              "start": 1,
+              "end": 7,
+              "text": "“I don’t want my sister to bump her head.”"
+            },
+            {
+              "start": 7.3,
+              "end": 13.5,
+              "text": "“Because it’ll hurt.”"
+            }
+          ]
+        },
+        {
+          "id": "bb-early-days",
+          "folder": "big-brother",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Learning Gentle",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/early-days.mp4",
+          "poster": "/media/big-brother/early-days-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Learning to be gentle. Mostly.",
+          "notes": {
+            "filename": "early-days.mp4",
+            "context": "February 2026",
+            "whatHappened": "Playing on the couch with his sister",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-ducks",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Bath Ducks",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/ducks.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "Partners in crime.",
+          "notes": {
+            "filename": "ducks.jpg",
+            "context": "February 2026",
+            "whatHappened": "Sitting in a tub of rubber ducks together",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-kisses",
+          "folder": "big-brother",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Kisses",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/kisses.mp4",
+          "poster": "/media/big-brother/kisses-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Kisses. His idea, every time.",
+          "notes": {
+            "filename": "kisses.mp4",
+            "context": "May and June 2026",
+            "whatHappened": "Kissing his sister on the head, three different days",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-wall",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "When Meimei Wants Something",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/wall.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "When Meimei wants something…",
+          "notes": {
+            "filename": "wall.jpg",
+            "context": "Now",
+            "whatHappened": "She reaches for the wall; he gently keeps a hand on her head",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-hike",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Trade, Not Grab",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/hike.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "…he knows to trade, not grab.",
+          "notes": {
+            "filename": "hike.jpg",
+            "context": "Now",
+            "whatHappened": "Holding her hand on a hike, stick in the other hand",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-playground",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Trade With Me",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/stroller.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "“Meimei, trade with me!”",
+          "notes": {
+            "filename": "stroller.jpg",
+            "context": "November 2025",
+            "whatHappened": "At the playground with Dad and his sister",
+            "quoteAndTimestamp": "“妹妹，trade with me!”",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-gate",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Hand in Hand",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/gate.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "Looking after her. Hand in hand.",
+          "notes": {
+            "filename": "gate.jpg",
+            "context": "Now",
+            "whatHappened": "Holding her hand at the garden gate",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-playing-together",
+          "folder": "big-brother",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Showing Her How",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/playing-together.mp4",
+          "poster": "/media/big-brother/playing-together-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "She watches everything he does. So he shows her how.",
+          "notes": {
+            "filename": "playing-together.mp4",
+            "context": "June 2026",
+            "whatHappened": "Climbing the play gym while his sister watches and follows",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-sister-follows",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Sister Follows",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/sister-follows.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "And then she follows.",
+          "notes": {
+            "filename": "sister-follows.jpg",
+            "context": "June 2026",
+            "whatHappened": "His sister climbing up after him",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-sink",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "She Copies Him",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/sink.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "Whatever he does, she does.",
+          "notes": {
+            "filename": "sink.jpg",
+            "context": "Now",
+            "whatHappened": "Washing lemons at the sink, she climbs up to join",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-costco-snack",
+          "folder": "big-brother",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Snack Time",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/costco-snack.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "Snack technique included.",
+          "notes": {
+            "filename": "costco-snack.jpg",
+            "context": "Now",
+            "whatHappened": "Both eating a snack in the shopping cart",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "bb-halloween-2026",
+          "folder": "big-brother",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Halloween 2026",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/big-brother/halloween-2026.mp4",
+          "poster": "/media/big-brother/halloween-2026-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Halloween 2026. Spider-Man and his strawberry.",
+          "notes": {
+            "filename": "halloween-2026.mp4",
+            "context": "October 2026",
+            "whatHappened": "Spider-Man and a strawberry, one year later",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        }
+      ],
+      "music": "/media/music/candidates/porch-swing-days-slower.m4a"
+    },
+    {
+      "id": "soccer",
+      "number": "03",
+      "theme": "sage",
+      "titleEn": "Finding His Feet in Soccer",
+      "titleZh": "",
+      "summaryEn": "He loves soccer. The first classes were rough — nervous, not cooperating, needing a lot of the coach’s attention. A year on, he’s the most engaged kid in class and has been picked for a team.",
+      "summaryZh": "",
+      "bodyEn": [
+        "Haisu loves playing soccer. The soccer class itself was another matter at first. He was very shy, struggled to follow the coach’s instructions, and often wouldn’t cooperate — some days he cried, some days he sat on the grass or ran off to do his own thing.",
+        "It took time. Gradually he learned to engage: listening to the coach, joining the drills, staying with the group. Now his coach and the other kids love playing with him, and he has been selected to join a team — he’ll play his first match against another team soon."
+      ],
+      "bodyZh": [],
+      "pendingChecks": [
+        {
+          "id": "sc-start",
+          "labelEn": "To confirm: roughly when he started the soccer class, and his age at the time.",
+          "labelZh": "",
+          "value": ""
+        },
+        {
+          "id": "sc-turning",
+          "labelEn": "Optional: a specific moment or small thing that helped him turn the corner (a coach, a drill, a friend).",
+          "labelZh": "",
+          "value": ""
+        }
+      ],
+      "mediaSlots": [
+        {
+          "id": "sc-first-class",
+          "folder": "soccer",
+          "type": "image",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "First Class",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/first-class.jpg",
+          "poster": "",
+          "subtitlesVtt": "",
+          "reelCaption": "First class. Sitting this one out.",
+          "notes": {
+            "filename": "first-class.jpg",
+            "context": "July 2025",
+            "whatHappened": "Sitting on the grass with the coaches instead of joining in",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "sc-day-one",
+          "folder": "soccer",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Day One",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/day-one.mp4",
+          "poster": "/media/soccer/day-one-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Nervous, and needing a lot of attention from the coach.",
+          "notes": {
+            "filename": "day-one.mp4",
+            "context": "July 2025",
+            "whatHappened": "Nervous on day one, needing a lot of one-on-one attention from the coach",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          },
+          "silent": true
+        },
+        {
+          "id": "sc-week-two",
+          "folder": "soccer",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Week Two",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/week-two.mp4",
+          "poster": "/media/soccer/week-two-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Still nervous. Coach stayed right by his side.",
+          "notes": {
+            "filename": "week-two.mp4",
+            "context": "July 2025",
+            "whatHappened": "Still nervous in week two, coach staying close beside him",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          },
+          "silent": true
+        },
+        {
+          "id": "sc-december",
+          "folder": "soccer",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Five Months In",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/december.mp4",
+          "poster": "/media/soccer/december-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "For a while he’d just run around, not quite listening.",
+          "notes": {
+            "filename": "december.mp4",
+            "context": "December 2025",
+            "whatHappened": "Running around the field, not quite following instructions yet",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "sc-june-dribbling",
+          "folder": "soccer",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Pinnie On",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/june-dribbling.mp4",
+          "poster": "/media/soccer/june-dribbling-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "About a year later: pinnie on, ball at his feet.",
+          "notes": {
+            "filename": "june-dribbling.mp4",
+            "context": "June 2026",
+            "whatHappened": "About a year later, dribbling in a pinnie with the other kids",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "sc-coach-talk",
+          "folder": "soccer",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Listening to Coach",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/coach-talk.mp4",
+          "poster": "/media/soccer/coach-talk-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Now he listens, and actually follows the drill.",
+          "notes": {
+            "filename": "coach-talk.mp4",
+            "context": "July 2026",
+            "whatHappened": "Listening to the coach and following the drill",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "sc-one-on-one",
+          "folder": "soccer",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "One-on-One",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/one-on-one.mp4",
+          "poster": "/media/soccer/one-on-one-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "He’s become the most engaged kid in class.",
+          "notes": {
+            "filename": "one-on-one.mp4",
+            "context": "July 2026",
+            "whatHappened": "Now the most engaged kid in the class",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        },
+        {
+          "id": "sc-september",
+          "folder": "soccer",
+          "type": "video",
+          "priority": "priority-1",
+          "required": true,
+          "labelEn": "Fourteen Months Later",
+          "labelZh": "",
+          "promptHintEn": "",
+          "promptHintZh": "",
+          "src": "/media/soccer/september.mp4",
+          "poster": "/media/soccer/september-poster.jpg",
+          "subtitlesVtt": "",
+          "reelCaption": "Selected for a team. First match against another club soon.",
+          "notes": {
+            "filename": "september.mp4",
+            "context": "September 2026",
+            "whatHappened": "Selected to join a team; will play another team soon",
+            "quoteAndTimestamp": "",
+            "usageNotes": ""
+          }
+        }
+      ],
+      "music": "/media/music/candidates/monkeys-spinning-monkeys.m4a"
+    }
+  ]
+}
