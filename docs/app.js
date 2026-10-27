@@ -876,17 +876,24 @@
     reel.musicRaf = requestAnimationFrame(step);
   }
 
+  function makeVideoEl() {
+    const v = document.createElement('video');
+    v.className = 'reel-media';
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.preload = 'auto';
+    return v;
+  }
+  // Two alternating players so the next clip can start before the current one leaves (true cross-dissolve)
   function getReelVideo() {
-    if (!reel.video) {
-      const v = document.createElement('video');
-      v.className = 'reel-media';
-      v.playsInline = true;
-      v.setAttribute('playsinline', '');
-      v.setAttribute('webkit-playsinline', '');
-      v.preload = 'auto';
-      reel.video = v;
-    }
-    return reel.video;
+    if (!reel.videos) { reel.videos = [makeVideoEl(), makeVideoEl()]; reel.vIdx = 0; }
+    reel.vIdx = 1 - reel.vIdx;
+    return reel.videos[reel.vIdx];
+  }
+  function currentVideo() { return reel.videos ? reel.videos[reel.vIdx] : null; }
+  function stopAllVideos() {
+    (reel.videos || []).forEach((v) => { v.onended = null; v.ontimeupdate = null; v.pause(); v.removeAttribute('src'); v.load(); });
   }
 
   function openReel(storyId) {
@@ -909,11 +916,12 @@
     // Unlock audio inside the user's tap: start the first clip unmuted on the shared element, then let showSlide take over
     const firstClip = reel.slides.find((sl) => sl.kind === 'live' || sl.kind === 'video');
     if (firstClip) {
-      const v = getReelVideo();
-      v.muted = false;
-      v.src = firstClip.src;
-      const p = v.play();
-      if (p && p.catch) p.catch(() => {});
+      if (!reel.videos) { reel.videos = [makeVideoEl(), makeVideoEl()]; reel.vIdx = 0; }
+      reel.videos.forEach((v) => {
+        v.muted = false; v.src = firstClip.src;
+        const p = v.play();
+        if (p && p.then) p.then(() => { if (!v.isConnected) v.pause(); }).catch(() => {});
+      });
     }
     if (story.music) {
       const a = getMusic();
@@ -942,7 +950,7 @@
     reel.active = false;
     clearTimeout(reel.timer);
     cancelAnimationFrame(reel.raf);
-    if (reel.video) { reel.video.pause(); reel.video.removeAttribute('src'); reel.video.load(); }
+    stopAllVideos();
     if (reel.music) { const a = reel.music; fadeMusic(0, 400); setTimeout(() => { a.pause(); }, 450); }
     reel.stage.innerHTML = '';
     reel.el.hidden = true;
@@ -1013,14 +1021,11 @@
       const c = card.cloneNode(true); c.style.animation = 'none'; wrap.appendChild(c);
     } else if (img) {
       const c = img.cloneNode(true); c.style.animation = 'none'; c.className = 'reel-media'; wrap.appendChild(c);
-    } else if (vid && vid.videoWidth) {
-      try {
-        const cv = document.createElement('canvas');
-        cv.width = vid.videoWidth; cv.height = vid.videoHeight;
-        cv.getContext('2d').drawImage(vid, 0, 0);
-        cv.className = 'reel-media'; cv.style.animation = 'none';
-        wrap.appendChild(cv);
-      } catch (e) { return null; }
+    } else if (vid) {
+      vid.ontimeupdate = null; vid.onended = null;
+      vid.style.animation = 'none';
+      wrap.appendChild(vid); // moves the live element; it keeps playing while it dissolves out
+      wrap.dataset.video = '1';
     } else {
       return null;
     }
@@ -1044,9 +1049,22 @@
     const s = reel.slides[i];
     const outgoing = snapshotStage();
     reel.stage.innerHTML = '';
+    let releaseOutgoing = () => {};
     if (outgoing) {
+      outgoing.classList.add('hold'); // stays fully visible until the next shot is ready
       reel.stage.appendChild(outgoing);
-      setTimeout(() => outgoing.remove(), 550);
+      let released = false;
+      releaseOutgoing = () => {
+        if (released) return; released = true;
+        outgoing.classList.remove('hold');
+        setTimeout(() => {
+          const v = outgoing.querySelector('video');
+          if (v) { v.pause(); }
+          outgoing.remove();
+        }, 650);
+      };
+      // never hold longer than this even if the incoming media is slow
+      setTimeout(releaseOutgoing, 1500);
     }
     reel.caption.classList.remove('show');
     reel.caption.innerHTML = '';
@@ -1061,6 +1079,7 @@
             ${s.sub ? `<p class="reel-card-sub">${escapeHtml(s.sub)}</p>` : ''}
           </div>
         </div>`;
+      releaseOutgoing();
       runDwell(i, CARD_DWELL_MS, next);
       return;
     }
@@ -1097,7 +1116,7 @@
     if (s.kind === 'photo') {
       const img = document.createElement('img');
       img.className = `reel-media kenburns kb-${i % 4}`;
-      img.onload = () => fitMedia(img, img.naturalWidth, img.naturalHeight);
+      img.onload = () => { fitMedia(img, img.naturalWidth, img.naturalHeight); releaseOutgoing(); };
       img.src = s.src;
       img.alt = s.caption;
       reel.stage.appendChild(img);
@@ -1115,8 +1134,13 @@
     vid.loop = false;
     vid.muted = false;
     vid.volume = 1;
-    if (s.poster) vid.poster = s.poster; else vid.removeAttribute('poster');
+    vid.removeAttribute('poster');
+    vid.style.animation = '';
+    vid.classList.add('enter');
     vid.onloadedmetadata = () => fitMedia(vid, vid.videoWidth, vid.videoHeight);
+    const ready = () => { vid.classList.remove('enter'); releaseOutgoing(); };
+    if ('requestVideoFrameCallback' in vid) vid.requestVideoFrameCallback(ready);
+    else vid.onplaying = ready;
     vid.src = s.src;
     reel.stage.appendChild(vid);
 

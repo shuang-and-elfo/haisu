@@ -1262,8 +1262,12 @@ body::before {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  animation: reel-out 0.45s ease-in both;
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
 }
+.reel-outgoing:not(.hold) { opacity: 0; }
+.reel-media.enter { opacity: 0; animation: none; }
+.reel-media { transition: opacity 0.6s ease-in-out; }
 
 .reel-outgoing .reel-bg { animation: none; }
 
